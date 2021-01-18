@@ -25,7 +25,7 @@ public class LevelDisplay : MonoBehaviour
 
     public void UpdateBar(int currentExp, int neededExp)
     {
-        LevelBar.GetComponent<LevelBar>().SetProgress(currentExp, neededExp);
+        LevelBar.GetComponent<ProgressBar>().SetProgress(currentExp, neededExp);
         ExperienceText.GetComponent<Text>().text = currentExp.ToString() + " / " + neededExp.ToString();
     }
 
