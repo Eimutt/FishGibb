@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class Level : MonoBehaviour
 {
     private int currentLevel;
-    private float currentExp;
-    private float neededExp;
-    public GameObject LevelBar;
-    public GameObject LevelText;
+    private int currentExp;
+    private int neededExp;
+    public GameObject LevelDisplay;
+    private LevelDisplay LevelDisplayObj;
     private int TalentPoints;
+    private Fish Fish;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,8 @@ public class Level : MonoBehaviour
         currentLevel = 1;
         currentExp = 0;
         neededExp = 10;
-        ChangeDisplayLevel(1);
+        LevelDisplayObj = LevelDisplay.GetComponent<LevelDisplay>();
+        Fish = this.GetComponent<Fish>();
     }
 
     // Update is called once per frame
@@ -30,25 +32,36 @@ public class Level : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(other.gameObject);
-        currentExp++;
-        if(currentExp == neededExp)
-        {
-            LevelUp();
-        }
-        LevelBar.GetComponent<LevelBar>().SetProgress(currentExp, neededExp);
+        GainExp(1);
     }
 
     private void LevelUp()
     {
+
+        currentExp = 0;
         currentLevel++;
         TalentPoints++;
-        currentExp = 0;
         neededExp += 2;
-        ChangeDisplayLevel(currentLevel);
+        LevelDisplayObj.UpdateLevel(currentLevel);
+        LevelDisplayObj.UpdateTalentPoints(TalentPoints);
     }
 
-    private void ChangeDisplayLevel(int level)
+    public void GainExp(int Exp)
     {
-        LevelText.GetComponent<Text>().text = level.ToString(); 
+        currentExp += Exp;
+        if (currentExp == neededExp)
+        {
+            LevelUp();
+        }
+        LevelDisplayObj.UpdateBar(currentExp, neededExp);
+    }
+
+    public void SpendSkillPoint()
+    {
+        //Add handling of skillpoints
+        
+        Fish.IncreaseSpeed();
+        TalentPoints--;
+        LevelDisplayObj.UpdateTalentPoints(TalentPoints);
     }
 }

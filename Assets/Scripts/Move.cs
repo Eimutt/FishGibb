@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Move : MonoBehaviour
 {
@@ -17,10 +18,17 @@ public class Move : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0;
-            Vector3 direction = Vector3.Normalize(mousePosition - this.transform.position);
-            this.transform.position += direction * Fish.GetSpeed() * Time.deltaTime;
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                Debug.Log("clicked on UI");
+            }
+            else
+            {
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.z = 0;
+                Vector3 direction = Vector3.Normalize(mousePosition - this.transform.position);
+                this.transform.position += direction * Fish.GetSpeed() * Time.deltaTime;
+            }
         }
         
     }
