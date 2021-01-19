@@ -29,11 +29,14 @@ public class Level : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Destroy(other.gameObject);
-        GainExp(1);
-    }
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if(other.gameObject.tag == "Food")
+    //    {
+    //        Destroy(other.gameObject);
+    //        GainExp(1);
+    //    }
+    //}
 
     private void LevelUp()
     {

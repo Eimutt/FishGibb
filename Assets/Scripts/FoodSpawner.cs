@@ -23,11 +23,14 @@ public class FoodSpawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > interval)
         {
-            timer = 0;
-            float angle = Random.Range(0, 360);
-            float distance = Random.Range(minrange, maxrange);
-            Vector3 randomDir = Quaternion.Euler(0f, 0f, Random.Range(0, 360)) * Vector3.right * distance;
-            Instantiate(FoodPrefab, player.transform.position + randomDir, new Quaternion(0, 0, 0, 0), this.transform);
+            if(transform.childCount < foodLimit)
+            {
+                timer = 0;
+                float angle = Random.Range(0, 360);
+                float distance = Random.Range(minrange, maxrange);
+                Vector3 randomDir = Quaternion.Euler(0f, 0f, Random.Range(0, 360)) * Vector3.right * distance;
+                Instantiate(FoodPrefab, player.transform.position + randomDir, new Quaternion(0, 0, 0, 0), this.transform);
+            }
         }
     }
 }

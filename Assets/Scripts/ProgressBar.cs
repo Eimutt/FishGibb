@@ -31,7 +31,6 @@ public class ProgressBar : MonoBehaviour
     public void UpdateMax(int NewMax)
     {
         MaxValue = NewMax;
-        print(MaxValue);
     }
 
     
@@ -43,7 +42,6 @@ public class ProgressBar : MonoBehaviour
         transform.localScale = new Vector3(percentage * 1, 1, 1);
         if (GrowFromLeft)
         {
-            print(percentage);
             transform.localPosition = new Vector3((percentage - 1) / 2, 0, 0) * this.GetComponent<RectTransform>().rect.width;
         }
     }
