@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public enum EnemyType { Hostile, Passive}
     public EnemyType type;
     public int maxHp;
-    private int currentHp;
+    private float currentHp;
     public int CollisionDamage;
     public float Speed;
     private bool InCombat;
@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        currentHp = maxHp;
     }
 
     // Update is called once per frame
@@ -121,5 +122,12 @@ public class Enemy : MonoBehaviour
 
             Patrolling = false;
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHp -= damage;
+        if (currentHp <= 0)
+            Destroy(gameObject);
     }
 }
