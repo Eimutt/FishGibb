@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public enum EnemyType { Hostile, Passive}
     public EnemyType type;
     public int maxHp;
-    private float currentHp;
+    public float currentHp;
     public int CollisionDamage;
     public float Speed;
     private bool InCombat;
@@ -129,5 +129,11 @@ public class Enemy : MonoBehaviour
         currentHp -= damage;
         if (currentHp <= 0)
             Destroy(gameObject);
+    }
+
+    public void Eat()
+    {
+        currentHp = currentHp < maxHp ? currentHp+1 : currentHp;
+        transform.localScale = transform.localScale.x < 10.0f ? transform.localScale * 1.1f : transform.localScale; 
     }
 }

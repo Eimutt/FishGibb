@@ -59,7 +59,7 @@ public class Level : MonoBehaviour
         LevelDisplayObj.UpdateBar(currentExp, neededExp);
     }
 
-    public void SpendSkillPoint()
+    public void SpendSkillPoint(int id)
     {
         //Add handling of skillpoints
         

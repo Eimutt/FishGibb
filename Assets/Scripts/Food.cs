@@ -25,6 +25,7 @@ public class Food : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Enemy")
         {
+            collision.GetComponent<Enemy>().Eat();
             Destroy(gameObject);
         }
     }

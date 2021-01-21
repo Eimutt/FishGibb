@@ -15,6 +15,7 @@ public class Fish : MonoBehaviour
     private EventManager EventManager;
     private bool InCombat;
     private PushPhysics PushPhysics;
+    public Color DamagedColor;
     [SerializeField] private InvulnerabilityColor InvulnerabilityColor;
     // Start is called before the first frame update
     void Start()
@@ -79,7 +80,7 @@ public class Fish : MonoBehaviour
                 Knockback(enemy.GetKnockbackStrength(), direction);
 
                 Invulnerable = true;
-                InvulnerabilityColor.SetTintColor(new Color(1f, 0.5f, 0.5f, 1f), InvulnerabilityDuration);
+                InvulnerabilityColor.SetTintColor(DamagedColor, InvulnerabilityDuration);
             }
             
         }
@@ -98,7 +99,7 @@ public class Fish : MonoBehaviour
                 Knockback(enemy.GetKnockbackStrength(), direction);
 
                 Invulnerable = true;
-                InvulnerabilityColor.SetTintColor(new Color(1f, 0.5f, 0.5f, 1f), InvulnerabilityDuration);
+                InvulnerabilityColor.SetTintColor(DamagedColor, InvulnerabilityDuration);
             }
 
         }
@@ -108,4 +109,5 @@ public class Fish : MonoBehaviour
     {
         PushPhysics.AddForce(direction, force);
     }
+
 }

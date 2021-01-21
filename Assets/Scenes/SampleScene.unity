@@ -736,7 +736,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2011291455}
         m_MethodName: SpendSkillPoint
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2236,7 +2236,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2011291455}
         m_MethodName: SpendSkillPoint
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2906,7 +2906,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2011291455}
         m_MethodName: SpendSkillPoint
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3207,6 +3207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventManagerObj: {fileID: 2099434402}
   InvulnerabilityDuration: 1
+  DamagedColor: {r: 0.26383924, g: 1, b: 0, a: 1}
   InvulnerabilityColor: {fileID: 2011291459}
 --- !u!114 &2011291458
 MonoBehaviour:
