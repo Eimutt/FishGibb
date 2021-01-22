@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     public float fireRate;
     private float reloadTime;
     public float range;
-    public float damage;
+    public int damage;
     public float speed;
     // Start is called before the first frame update
     void Start()

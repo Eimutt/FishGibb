@@ -3,30 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Fish : MonoBehaviour
+public class Fish : Unit
 {
-    private int CurrentHealth;
-    private int MaxHealth;
-    private int Speed;
-    public GameObject EventManagerObj;
+    //private int CurrentHealth;
+    //private int MaxHealth;
+    //private int Speed;
     public float InvulnerabilityDuration;
     private bool Invulnerable;
     private float InvulnerabilityTimer = 0;
-    private EventManager EventManager;
     private bool InCombat;
-    private PushPhysics PushPhysics;
     public Color DamagedColor;
     [SerializeField] private InvulnerabilityColor InvulnerabilityColor;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        EventManager = EventManagerObj.GetComponent<EventManager>();
-        Speed = 2;
-        CurrentHealth = 10;
-        MaxHealth = 10;
-        EventManager.UpdateMaxLifeEvent(MaxHealth);
-        EventManager.UpdateLifeEvent(CurrentHealth);
-        PushPhysics = gameObject.GetComponent<PushPhysics>();
+        base.Start();
+        eventManager.UpdateMaxLifeEvent(maxHp);
+        eventManager.UpdateLifeEvent(currentHp);
     }
 
     // Update is called once per frame
@@ -45,26 +38,20 @@ public class Fish : MonoBehaviour
 
     public void IncreaseHealth()
     {
-        MaxHealth++;
-        CurrentHealth = MaxHealth;
-        EventManager.UpdateMaxLifeEvent(CurrentHealth);
-        EventManager.UpdateLifeEvent(CurrentHealth);
+        maxHp++;
+        currentHp = maxHp;
+        eventManager.UpdateMaxLifeEvent(currentHp);
+        eventManager.UpdateLifeEvent(currentHp);
     }
 
     public void IncreaseSpeed()
     {
-        Speed++;
+        speed++;
     }
 
     public float GetSpeed()
     {
-        return Speed;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        CurrentHealth -= damage;
-        EventManager.UpdateLifeEvent(CurrentHealth);
+        return speed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -105,9 +92,14 @@ public class Fish : MonoBehaviour
         }
     }
 
-    private void Knockback(float force, Vector3 direction)
+    public override void Eat()
     {
-        PushPhysics.AddForce(direction, force);
+        eventManager.GrantExperienceEvent(1);
     }
 
+    public override void TakeDamage(int damage)
+    {
+        currentHp -= damage;
+        eventManager.UpdateLifeEvent(currentHp);
+    }
 }

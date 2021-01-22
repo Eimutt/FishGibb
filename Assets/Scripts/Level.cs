@@ -41,7 +41,7 @@ public class Level : MonoBehaviour
     private void LevelUp()
     {
 
-        currentExp = 0;
+        currentExp = neededExp - currentExp;
         currentLevel++;
         TalentPoints++;
         neededExp += 2;
@@ -52,7 +52,7 @@ public class Level : MonoBehaviour
     public void GainExp(int Exp)
     {
         currentExp += Exp;
-        if (currentExp == neededExp)
+        if (currentExp >= neededExp)
         {
             LevelUp();
         }

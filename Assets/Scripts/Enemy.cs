@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Unit
 {
     public enum EnemyType { Hostile, Passive}
     public EnemyType type;
-    public int maxHp;
-    public float currentHp;
+    //public int maxHp;
+    //public float currentHp;
+    //public float Speed;
     public int CollisionDamage;
-    public float Speed;
+    
     private bool InCombat;
     private GameObject player;
     public float AggroRadius;
@@ -20,9 +21,11 @@ public class Enemy : MonoBehaviour
     private Vector3 RandomDirection;
     private bool Patrolling;
     private float timer;
+    public int experience;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         player = GameObject.FindWithTag("Player");
         currentHp = maxHp;
     }
@@ -47,7 +50,7 @@ public class Enemy : MonoBehaviour
         {
             if (Patrolling)
             {
-                transform.position += RandomDirection * Speed * Time.deltaTime;
+                transform.position += RandomDirection * speed * Time.deltaTime;
                 timer += Time.deltaTime;
                 if (timer > 3)
                 {
@@ -64,7 +67,7 @@ public class Enemy : MonoBehaviour
     private void MoveTowardsTarget()
     {
         Vector3 direction = Vector3.Normalize(target.transform.position - transform.position);
-        transform.position += direction * Speed * Time.deltaTime;
+        transform.position += direction * speed * Time.deltaTime;
 
         float z = Vector3.SignedAngle(Vector3.up, direction , Vector3.forward);
         Quaternion rotation = Quaternion.Euler(0, 0, z);
@@ -124,16 +127,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
-    {
-        currentHp -= damage;
-        if (currentHp <= 0)
-            Destroy(gameObject);
-    }
-
-    public void Eat()
+    public override void Eat()
     {
         currentHp = currentHp < maxHp ? currentHp+1 : currentHp;
         transform.localScale = transform.localScale.x < 10.0f ? transform.localScale * 1.1f : transform.localScale; 
+    }
+
+    public override void Die()
+    {
+        eventManager.GrantExperienceEvent(this.experience);
+        Destroy(gameObject);
     }
 }

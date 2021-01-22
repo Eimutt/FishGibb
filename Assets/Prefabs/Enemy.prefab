@@ -47,12 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607d4b1797e9c634cb6db71c9db96744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   maxHp: 25
+  speed: 1
+  type: 0
   CollisionDamage: 1
-  Speed: 1
   AggroRadius: 5
   KnockbackStrength: 10
+  experience: 5
 --- !u!212 &5499737530890429769
 SpriteRenderer:
   m_ObjectHideFlags: 0

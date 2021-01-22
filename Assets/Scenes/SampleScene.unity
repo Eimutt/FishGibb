@@ -1224,7 +1224,7 @@ MonoBehaviour:
   fireRate: 3
   range: 5
   damage: 1
-  speed: 2
+  speed: 4
 --- !u!1 &501432850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1643,7 @@ MonoBehaviour:
   fireRate: 1
   range: 7
   damage: 3
-  speed: 5
+  speed: 7
 --- !u!1 &671250722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,7 +3047,6 @@ GameObject:
   - component: {fileID: 2011291457}
   - component: {fileID: 2011291458}
   - component: {fileID: 2011291459}
-  - component: {fileID: 2011291460}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Player
@@ -3205,9 +3204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4311ccd5e2f6f6941bb60f90f7536fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventManagerObj: {fileID: 2099434402}
+  maxHp: 10
+  speed: 3
   InvulnerabilityDuration: 1
-  DamagedColor: {r: 0.26383924, g: 1, b: 0, a: 1}
+  DamagedColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
   InvulnerabilityColor: {fileID: 2011291459}
 --- !u!114 &2011291458
 MonoBehaviour:
@@ -3234,23 +3234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae2bda6de2dd3948ab5ae96445048d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2011291460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011291450}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a572d474037d84e851ce5d1a4e0a5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shot: {fileID: 3183617984767268931, guid: f53fbfd273b09f34e9a65396a3423208, type: 3}
-  fireRate: 1
-  range: 5
-  damage: 1
-  speed: 1
 --- !u!1 &2028738408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,6 +3449,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 737157695}
         m_MethodName: UpdateMax
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  GrantExperience:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2011291455}
+        m_MethodName: GainExp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private GameObject target;
-    private float damage;
+    private int damage;
     private float speed;
     private float acceleration;
 
@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void Initialise(float damage, float speed, GameObject target)
+    public void Initialise(int damage, float speed, GameObject target)
     {
         this.damage = damage;
         this.speed = speed;

@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
 {
     public MyIntEvent UpdateCurrentLife;
     public MyIntEvent UpdateMaxLife;
+    public MyIntEvent GrantExperience;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +34,10 @@ public class EventManager : MonoBehaviour
     public void UpdateMaxLifeEvent(int max)
     {
         UpdateMaxLife.Invoke(max);
+    }
+
+    public void GrantExperienceEvent(int experience)
+    {
+        GrantExperience.Invoke(experience);
     }
 }

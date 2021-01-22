@@ -18,14 +18,9 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
-        {
-            collision.GetComponent<Level>().GainExp(1);
-            Destroy(gameObject);
-        }
-        else if(collision.gameObject.tag == "Enemy")
-        {
-            collision.GetComponent<Enemy>().Eat();
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
+        { 
+            collision.GetComponent<Unit>().Eat();
             Destroy(gameObject);
         }
     }
