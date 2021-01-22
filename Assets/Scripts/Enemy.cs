@@ -135,7 +135,8 @@ public class Enemy : Unit
 
     public override void Die()
     {
-        eventManager.GrantExperienceEvent(this.experience);
+        worldHandler.GainExp(this.experience);
+        //eventManager.GrantExperienceEvent(this.experience);
         Destroy(gameObject);
     }
 }

@@ -11,7 +11,7 @@ public class DamageNumber : MonoBehaviour
     void Start()
     {
 
-        transform.localPosition = new Vector3(0.75f, 0.35f, 0);
+        transform.localPosition = new Vector3(0, 0, 0);
         float randomDif = Random.Range(-Xvariance, Xvariance);
         transform.localPosition = (transform.localPosition) + new Vector3(randomDif, 0, 0);
     }

@@ -8,8 +8,8 @@ public class Level : MonoBehaviour
     private int currentLevel;
     private int currentExp;
     private int neededExp;
-    public GameObject LevelDisplay;
-    private LevelDisplay LevelDisplayObj;
+    //public GameObject LevelDisplay;
+    //private LevelDisplay LevelDisplayObj;
     private int TalentPoints;
     private Fish Fish;
 
@@ -19,7 +19,7 @@ public class Level : MonoBehaviour
         currentLevel = 1;
         currentExp = 0;
         neededExp = 10;
-        LevelDisplayObj = LevelDisplay.GetComponent<LevelDisplay>();
+        //LevelDisplayObj = LevelDisplay.GetComponent<LevelDisplay>();
         Fish = this.GetComponent<Fish>();
     }
 
@@ -45,18 +45,18 @@ public class Level : MonoBehaviour
         currentLevel++;
         TalentPoints++;
         neededExp += 2;
-        LevelDisplayObj.UpdateLevel(currentLevel);
-        LevelDisplayObj.UpdateTalentPoints(TalentPoints);
+        //LevelDisplayObj.UpdateLevel(currentLevel);
+        //LevelDisplayObj.UpdateTalentPoints(TalentPoints);
     }
 
-    public void GainExp(int Exp)
+    public void GainExp(int exp)
     {
-        currentExp += Exp;
+        currentExp += exp;
         if (currentExp >= neededExp)
         {
             LevelUp();
         }
-        LevelDisplayObj.UpdateBar(currentExp, neededExp);
+        //LevelDisplayObj.UpdateBar(currentExp, neededExp);
     }
 
     public void SpendSkillPoint(int id)
@@ -65,6 +65,6 @@ public class Level : MonoBehaviour
         
         Fish.IncreaseSpeed();
         TalentPoints--;
-        LevelDisplayObj.UpdateTalentPoints(TalentPoints);
+        //LevelDisplayObj.UpdateTalentPoints(TalentPoints);
     }
 }

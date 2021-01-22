@@ -9,11 +9,18 @@ public class MyIntEvent : UnityEvent<int>
 
 }
 
+[System.Serializable]
+public class MyIntTupleEvent: UnityEvent<int, int>
+{
+
+}
+
 public class EventManager : MonoBehaviour
 {
-    public MyIntEvent UpdateCurrentLife;
     public MyIntEvent UpdateMaxLife;
-    public MyIntEvent GrantExperience;
+    public MyIntTupleEvent UpdateCurrentExperience;
+    public MyIntTupleEvent UpdateCurrentLife;
+    public MyIntEvent LevelUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +33,9 @@ public class EventManager : MonoBehaviour
         
     }
 
-    public void UpdateLifeEvent(int current)
+    public void UpdateLifeEvent(int current, int max)
     {
-        UpdateCurrentLife.Invoke(current);
+        UpdateCurrentLife.Invoke(current, max);
     }
 
     public void UpdateMaxLifeEvent(int max)
@@ -36,8 +43,13 @@ public class EventManager : MonoBehaviour
         UpdateMaxLife.Invoke(max);
     }
 
-    public void GrantExperienceEvent(int experience)
+    public void GrantExperienceEvent(int current, int max)
     {
-        GrantExperience.Invoke(experience);
+        UpdateCurrentExperience.Invoke(current, max);
+    }
+
+    public void LevelUpEvent(int level)
+    {
+        LevelUp.Invoke(level);
     }
 }

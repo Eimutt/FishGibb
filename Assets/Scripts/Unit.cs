@@ -11,10 +11,12 @@ public class Unit : MonoBehaviour
     protected EventManager eventManager;
 
     private PushPhysics pushPhysics;
+    protected WorldHandler worldHandler;
     // Start is called before the first frame update
     protected virtual void Start()
     {
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+        worldHandler = GameObject.Find("WorldHandler").GetComponent<WorldHandler>();
         //TryGetComponent(out PushPhysics pushPhysics);
         pushPhysics = GetComponent<PushPhysics>();
         currentHp = maxHp;

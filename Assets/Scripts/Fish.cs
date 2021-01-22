@@ -18,8 +18,7 @@ public class Fish : Unit
     protected override void Start()
     {
         base.Start();
-        eventManager.UpdateMaxLifeEvent(maxHp);
-        eventManager.UpdateLifeEvent(currentHp);
+        eventManager.UpdateLifeEvent(currentHp, maxHp);
     }
 
     // Update is called once per frame
@@ -40,8 +39,7 @@ public class Fish : Unit
     {
         maxHp++;
         currentHp = maxHp;
-        eventManager.UpdateMaxLifeEvent(currentHp);
-        eventManager.UpdateLifeEvent(currentHp);
+        eventManager.UpdateLifeEvent(currentHp, maxHp);
     }
 
     public void IncreaseSpeed()
@@ -94,12 +92,13 @@ public class Fish : Unit
 
     public override void Eat()
     {
-        eventManager.GrantExperienceEvent(1);
+        //eventManager.GrantExperienceEvent(1);
+        worldHandler.GainExp(1);
     }
 
     public override void TakeDamage(int damage)
     {
         currentHp -= damage;
-        eventManager.UpdateLifeEvent(currentHp);
+        eventManager.UpdateLifeEvent(currentHp, maxHp);
     }
 }
