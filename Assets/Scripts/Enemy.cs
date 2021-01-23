@@ -22,12 +22,15 @@ public class Enemy : Unit
     private bool Patrolling;
     private float timer;
     public int experience;
+    private float currentGrowth;
+    public float maxGrowth;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         player = GameObject.FindWithTag("Player");
         currentHp = maxHp;
+        currentGrowth = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -130,7 +133,11 @@ public class Enemy : Unit
     public override void Eat()
     {
         currentHp = currentHp < maxHp ? currentHp+1 : currentHp;
-        transform.localScale = transform.localScale.x < 10.0f ? transform.localScale * 1.1f : transform.localScale; 
+        if(currentGrowth <= maxGrowth)
+        {
+            currentGrowth *= 1.1f;
+            transform.localScale = new Vector3(currentGrowth, currentGrowth, currentGrowth);
+        }
     }
 
     public override void Die()

@@ -1908,6 +1908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1016632107}
   - component: {fileID: 1016632108}
+  - component: {fileID: 1016632109}
   m_Layer: 0
   m_Name: WorldHandler
   m_TagString: Untagged
@@ -1944,6 +1945,18 @@ MonoBehaviour:
   currentLevel: 0
   currentExp: 0
   neededExp: 0
+--- !u!114 &1016632109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016632106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe461db9b0fcaa4d9f93bfe17d0e3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1023843343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3404,8 +3417,9 @@ MonoBehaviour:
   minrange: 7
   maxrange: 12
   interval: 5
-  EnemyPrefab: {fileID: 5499737530890429813, guid: a4dde635b76f46e45a54f3878bfbff10,
-    type: 3}
+  EnemyPrefab:
+  - {fileID: 5499737530890429813, guid: a4dde635b76f46e45a54f3878bfbff10, type: 3}
+  - {fileID: 776417726811147060, guid: 557193dd0373dca42b373c19495e5b77, type: 3}
   player: {fileID: 2011291450}
   enemyLimit: 5
 --- !u!1 &2099434402

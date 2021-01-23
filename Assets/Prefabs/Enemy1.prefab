@@ -54,6 +54,7 @@ MonoBehaviour:
   AggroRadius: 5
   KnockbackStrength: 10
   experience: 5
+  maxGrowth: 10
 --- !u!212 &5499737530890429769
 SpriteRenderer:
   m_ObjectHideFlags: 0
