@@ -24,6 +24,8 @@ public class Enemy : Unit
     public int experience;
     private float currentGrowth;
     public float maxGrowth;
+    private int incomingDamage;
+    public float despawnRange;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -65,6 +67,8 @@ public class Enemy : Unit
                 GetRandomDirection();
             }
         }
+        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > despawnRange)
+            Destroy(this.gameObject);
     }
 
     private void MoveTowardsTarget()
@@ -132,7 +136,8 @@ public class Enemy : Unit
 
     public override void Eat()
     {
-        currentHp = currentHp < maxHp ? currentHp+1 : currentHp;
+        //Should monsters regenerate hp?
+        //currentHp = currentHp < maxHp ? currentHp+1 : currentHp;
         if(currentGrowth <= maxGrowth)
         {
             currentGrowth *= 1.1f;
@@ -145,5 +150,23 @@ public class Enemy : Unit
         worldHandler.GainExp(this.experience);
         //eventManager.GrantExperienceEvent(this.experience);
         Destroy(gameObject);
+    }
+
+
+    public override void TakeDamage(int damage)
+    {
+        currentHp -= damage;
+        incomingDamage -= damage;
+        if (currentHp <= 0)
+            Die();
+    }
+    public void IncreaseIncomingDamage(int damage)
+    {
+        incomingDamage += damage;
+    }
+
+    public bool WillSurvive()
+    {
+        return (incomingDamage < currentHp);
     }
 }

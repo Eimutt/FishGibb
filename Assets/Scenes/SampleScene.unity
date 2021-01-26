@@ -1183,7 +1183,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.36320752, g: 0.610849, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.13207544, b: 0.33962262, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1200,7 +1200,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2530,7 +2530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 8276385679317717470, guid: dfd7d4717885d3d40abf9dc4b3c313c5, type: 3}
   fireRate: 15
-  range: 7
+  range: 9
   damage: 1
   speed: 1
 --- !u!1 &1840293170
@@ -3171,12 +3171,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minrange: 7
   maxrange: 12
-  interval: 5
+  interval: 2
   EnemyPrefab:
   - {fileID: 5499737530890429813, guid: a4dde635b76f46e45a54f3878bfbff10, type: 3}
   - {fileID: 776417726811147060, guid: 557193dd0373dca42b373c19495e5b77, type: 3}
   player: {fileID: 2011291450}
-  enemyLimit: 5
+  enemyLimit: 10
 --- !u!1 &2099434402
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5499737530890429814}
   - component: {fileID: 5499737530890429768}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,6 +55,7 @@ MonoBehaviour:
   KnockbackStrength: 10
   experience: 5
   maxGrowth: 10
+  despawnRange: 15
 --- !u!212 &5499737530890429769
 SpriteRenderer:
   m_ObjectHideFlags: 0

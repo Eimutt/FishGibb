@@ -23,7 +23,7 @@ public class CurvedGun : MonoBehaviour
         reloadTime += Time.deltaTime;
         if (reloadTime > (1 / fireRate))
         {
-            if (target)
+            if (target && target.GetComponent<Enemy>().WillSurvive())
             {
                 if (IsTargetInRange())
                     Shoot();
@@ -46,7 +46,7 @@ public class CurvedGun : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (enemyDistance < minDistance)
+            if (enemyDistance < minDistance && enemy.GetComponent<Enemy>().WillSurvive())
             {
                 target = enemy;
                 minDistance = enemyDistance;

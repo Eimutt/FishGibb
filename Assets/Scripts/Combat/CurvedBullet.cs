@@ -44,6 +44,9 @@ public class CurvedBullet : MonoBehaviour
         this.target = target;
         this.speed = speed;
         CalculateMidPoint();
+
+
+        target.GetComponent<Enemy>().IncreaseIncomingDamage(damage);
     }
 
     private void CalculateMidPoint()
