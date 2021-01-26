@@ -11,6 +11,7 @@ public class CurvedGun : MonoBehaviour
     public float range;
     public int damage;
     public float speed;
+    public bool targetsRandom;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,13 +44,27 @@ public class CurvedGun : MonoBehaviour
     {
         float minDistance = range;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+        if (targetsRandom)
         {
-            float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (enemyDistance < minDistance && enemy.GetComponent<Enemy>().WillSurvive())
+            bool found = false;
+            while (!found)
             {
-                target = enemy;
-                minDistance = enemyDistance;
+                GameObject enemy = enemies[Random.Range(0, enemies.Length)];
+                if (enemy.GetComponent<Enemy>().WillSurvive())
+                {
+                    target = enemy;
+                    found = true;
+                }
+            }        } else
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
+                if (enemyDistance < minDistance && enemy.GetComponent<Enemy>().WillSurvive())
+                {
+                    target = enemy;
+                    minDistance = enemyDistance;
+                }
             }
         }
     }

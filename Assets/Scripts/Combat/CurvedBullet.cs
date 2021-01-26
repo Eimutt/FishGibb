@@ -11,6 +11,9 @@ public class CurvedBullet : MonoBehaviour
     private float t;
     public GameObject target;
     private int damage;
+    public Animator animator;
+    public Sprite explosionAnimation;
+    public bool inactive;
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +24,23 @@ public class CurvedBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!target)
-            Destroy(gameObject);
-
-        //Move along bezier curve
-        targetPos = target.transform.position;
-        transform.position = Mathf.Pow((1 - t), 2) * origin + 2 * (1 - t) * t * midpoint + Mathf.Pow(t, 2) * targetPos;
-        t += speed * Time.deltaTime;
-        RotateToTangent();
-
-        if ( t > 1)
+        if (!inactive)
         {
-            target.GetComponent<Enemy>().TakeDamage(damage);
-            Destroy(gameObject);
+            if (!target)
+                Destroy(gameObject);
+
+            //Move along bezier curve
+            targetPos = target.transform.position;
+            transform.position = Mathf.Pow((1 - t), 2) * origin + 2 * (1 - t) * t * midpoint + Mathf.Pow(t, 2) * targetPos;
+            t += speed * Time.deltaTime;
+            RotateToTangent();
+
+            if (t > 1)
+            {
+                Explode();
+            }
         }
+        
     }
 
     public void Initialise(int damage, float speed, GameObject target)
@@ -73,5 +79,18 @@ public class CurvedBullet : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, z);
 
         transform.rotation = rotation;
+    }
+
+    //Sets object to inactive and starts the explosion animation
+    private void Explode()
+    {
+        target.GetComponent<Enemy>().TakeDamage(damage);
+        gameObject.GetComponent<SpriteRenderer>().sprite = explosionAnimation;
+        this.transform.localScale = transform.localScale * 1.8f;
+        this.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 359f));
+
+        animator.SetTrigger("Destroy");
+        Destroy(gameObject, 0.15f);
+        inactive = true;
     }
 }

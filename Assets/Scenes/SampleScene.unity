@@ -2529,10 +2529,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shot: {fileID: 8276385679317717470, guid: dfd7d4717885d3d40abf9dc4b3c313c5, type: 3}
-  fireRate: 15
-  range: 9
+  fireRate: 10
+  range: 5
   damage: 1
-  speed: 1
+  speed: 2
+  targetsRandom: 0
 --- !u!1 &1840293170
 GameObject:
   m_ObjectHideFlags: 0

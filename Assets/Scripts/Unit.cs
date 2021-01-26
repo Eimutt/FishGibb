@@ -6,7 +6,7 @@ public class Unit : MonoBehaviour
 {
     protected int currentHp;
     public int maxHp;
-    public int speed;
+    public float speed;
 
     protected EventManager eventManager;
 
