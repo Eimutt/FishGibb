@@ -13,7 +13,7 @@ public class Enemy : Unit
     //public float Speed;
     public int CollisionDamage;
     
-    private bool InCombat;
+    protected bool InCombat;
     private GameObject player;
     public float AggroRadius;
     public float KnockbackStrength;
@@ -36,7 +36,7 @@ public class Enemy : Unit
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (InCombat)
         {

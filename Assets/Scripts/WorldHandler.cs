@@ -49,7 +49,7 @@ public class WorldHandler : MonoBehaviour
         eventManager.LevelUpEvent(currentLevel);
         unlocks.EarnSkillPoint();
 
-        if (currentLevel == 10)
+        if (currentLevel % 3 == 0)
             AdvanceStage();
     }
 

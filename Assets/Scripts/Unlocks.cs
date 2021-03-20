@@ -8,6 +8,7 @@ public class Unlocks : MonoBehaviour
     private int skillPoints;
     private EventManager eventManager;
     public GameObject fish;
+    public GameObject[] weaponPrefabs;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,4 +48,8 @@ public class Unlocks : MonoBehaviour
 
     }
 
+    public void UnlockWeapon(int weaponId)
+    {
+        Instantiate(weaponPrefabs[weaponId], fish.transform);
+    }
 }

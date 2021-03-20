@@ -36,6 +36,10 @@ public class EnemySpawner : MonoBehaviour
     public void AdvanceStage()
     {
         stage++;
+        if(stage > EnemyPrefab.Length)
+        {
+            stage = EnemyPrefab.Length;
+        }
     }
 
     private void SpawnEnemy()
