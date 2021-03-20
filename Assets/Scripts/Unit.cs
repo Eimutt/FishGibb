@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    protected int currentHp;
+    public int currentHp;
     public int maxHp;
     public float speed;
 
@@ -49,5 +49,10 @@ public class Unit : MonoBehaviour
     {
         if(pushPhysics)
             pushPhysics.AddForce(direction, force);
+    }
+
+    public int GetCurrentHp()
+    {
+        return currentHp;
     }
 }
