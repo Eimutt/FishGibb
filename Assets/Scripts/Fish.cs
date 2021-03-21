@@ -83,8 +83,7 @@ public class Fish : Unit
                 Vector3 direction = Vector3.Normalize(transform.position - other.transform.position);
                 Knockback(enemy.GetKnockbackStrength(), direction);
 
-                Invulnerable = true;
-                InvulnerabilityColor.SetTintColor(DamagedColor, InvulnerabilityDuration);
+                
             }
 
         }
@@ -98,7 +97,12 @@ public class Fish : Unit
 
     public override void TakeDamage(int damage)
     {
-        currentHp -= damage;
-        eventManager.UpdateLifeEvent(currentHp, maxHp);
+        if (!Invulnerable)
+        {
+            Invulnerable = true;
+            InvulnerabilityColor.SetTintColor(DamagedColor, InvulnerabilityDuration);
+            currentHp -= damage;
+            eventManager.UpdateLifeEvent(currentHp, maxHp);
+        }
     }
 }

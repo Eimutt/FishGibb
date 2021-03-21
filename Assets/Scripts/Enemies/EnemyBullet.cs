@@ -42,4 +42,16 @@ public class EnemyBullet : MonoBehaviour
 
         transform.rotation = rotation;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Fish>().TakeDamage(this.damage);
+            if (!persistant)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }

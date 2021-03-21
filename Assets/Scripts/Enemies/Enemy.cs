@@ -94,7 +94,7 @@ public class Enemy : Unit
 
     public bool IsInRangeOfPlayer()
     {
-        return (Vector3.Distance(gameObject.transform.position, player.transform.position) < AggroRadius);
+        return (Vector3.Distance(gameObject.transform.position, player.transform.position) < AggroRadius * transform.localScale.x);
     }
 
     public void GetRandomDirection()

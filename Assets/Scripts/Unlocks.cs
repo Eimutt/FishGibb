@@ -5,7 +5,7 @@ using UnityEngine;
 public class Unlocks : MonoBehaviour
 {
     private StatUnlock[] StatsUnlocks;
-    private int skillPoints;
+    public int skillPoints;
     private EventManager eventManager;
     public GameObject fish;
     public GameObject[] weaponPrefabs;

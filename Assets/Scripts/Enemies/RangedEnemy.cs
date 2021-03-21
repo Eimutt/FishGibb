@@ -79,10 +79,11 @@ public class RangedEnemy : Enemy
                 EnemyBullet enBullet = enemyBulletObj.GetComponent<EnemyBullet>();
                 enBullet.Initialise(dir);
 
-                if (add)
-                    shotAngle += spreadDegree;
-                else
-                    shotAngle -= spreadDegree;
+                //if (add)
+                //    shotAngle += spreadDegree;
+                //else
+                //    shotAngle -= spreadDegree;
+                shotAngle += spreadDegree * (add ? 1 : -1);
                 degreeCount += spreadDegree;
                 if(degreeCount > degreeLimit)
                 {

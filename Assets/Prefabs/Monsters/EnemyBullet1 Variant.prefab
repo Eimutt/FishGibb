@@ -17,6 +17,16 @@ PrefabInstance:
       propertyPath: duration
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2273965755642260896, guid: d34e1b9a9a1178d40853a6a109ffdc99,
+        type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273965755642260896, guid: d34e1b9a9a1178d40853a6a109ffdc99,
+        type: 3}
+      propertyPath: persistant
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2273965755642260897, guid: d34e1b9a9a1178d40853a6a109ffdc99,
         type: 3}
       propertyPath: m_Color.r
