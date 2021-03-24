@@ -91,8 +91,7 @@ public class Fish : Unit
 
     public override void Eat()
     {
-        //eventManager.GrantExperienceEvent(1);
-        worldHandler.GainExp(1);
+        eventManager.GainExpEvent(1);
     }
 
     public override void TakeDamage(int damage)

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -879,6 +879,7 @@ RectTransform:
   - {fileID: 825607638}
   - {fileID: 1167156255}
   - {fileID: 1053110690}
+  - {fileID: 919059034}
   m_Father: {fileID: 1689166421}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2439,6 +2440,52 @@ Transform:
   m_Father: {fileID: 81452664}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &919059032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919059034}
+  - component: {fileID: 919059033}
+  m_Layer: 0
+  m_Name: CombatUIHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &919059033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919059032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a954494de8e85541a942d93cd941be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultText: {fileID: 1096884054270498794, guid: 609d92c3d9ee60241a712843ce321d34,
+    type: 3}
+  showDamageText: 0
+--- !u!4 &919059034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919059032}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -618, y: -317, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 178696436}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &940216143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,6 +2768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe461db9b0fcaa4d9f93bfe17d0e3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPoints: 0
   fish: {fileID: 2011291450}
   weaponPrefabs:
   - {fileID: 4744296408633405329, guid: 15aa357d2ab8d1041835c0dfda0f8ac6, type: 3}
@@ -4327,10 +4375,10 @@ MonoBehaviour:
   maxrange: 12
   interval: 2
   EnemyPrefab:
-  - {fileID: 5499737530890429813, guid: a4dde635b76f46e45a54f3878bfbff10, type: 3}
-  - {fileID: 776417726811147060, guid: 557193dd0373dca42b373c19495e5b77, type: 3}
-  - {fileID: 7975882832600406696, guid: ecab0706dedeb544d8f6938a4396e43d, type: 3}
-  - {fileID: 7192931271033788099, guid: 50f5897addee9254d94e7acb5b60fbac, type: 3}
+  - {fileID: 6188525439801622237, guid: dd2473cb660ad6342ac27935a1c49ead, type: 3}
+  - {fileID: 6384329078952470050, guid: 55ccd49026947b94bb41958e2912d435, type: 3}
+  - {fileID: 1165367947518045557, guid: c55e1840a36e8aa43b6a71481fa9e191, type: 3}
+  - {fileID: 5918741101172938704, guid: 35c00448f6b59ce459f3c35e5e06a1b1, type: 3}
   player: {fileID: 2011291450}
   enemyLimit: 10
 --- !u!1 &2099434402
@@ -4409,6 +4457,34 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 178696437}
         m_MethodName: UpdateLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DoDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 919059033}
+        m_MethodName: DamageEnemy
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  GainExp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1016632108}
+        m_MethodName: GainExp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

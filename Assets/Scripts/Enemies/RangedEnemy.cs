@@ -42,7 +42,7 @@ public class RangedEnemy : Enemy
         {
             if (FirstCombat)
             {
-                shotAngle = transform.rotation.eulerAngles.z;
+                shotAngle = transform.Find("Sprite").rotation.eulerAngles.z;
                 FirstCombat = false;
             }
             reloadTime += Time.deltaTime;
@@ -60,7 +60,7 @@ public class RangedEnemy : Enemy
         {
             case RangedAttackType.Pattern:
             {
-                shotAngle = transform.rotation.eulerAngles.z;
+                shotAngle = transform.Find("Sprite").rotation.eulerAngles.z;
 
                 for (int i = 0; i < shoots; i++)
                 {
@@ -89,7 +89,7 @@ public class RangedEnemy : Enemy
                 {
                     degreeCount = 0;
                     add = !add;
-                    shotAngle = transform.rotation.eulerAngles.z;
+                    shotAngle = transform.Find("Sprite").rotation.eulerAngles.z;
                 }
                 break;
             }

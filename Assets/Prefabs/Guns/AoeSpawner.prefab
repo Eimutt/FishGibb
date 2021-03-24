@@ -45,6 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 4497177934009948891, guid: 022072103a0d01b4fbd32520a8001250, type: 3}
   fireRate: 0.5
-  radius: 15
+  radius: 35
   damage: 5
   lifetime: 0.3

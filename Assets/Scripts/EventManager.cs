@@ -15,12 +15,20 @@ public class MyIntTupleEvent: UnityEvent<int, int>
 
 }
 
+[System.Serializable]
+public class MyGobjEvent: UnityEvent<GameObject, int, float>
+{
+
+}
+
 public class EventManager : MonoBehaviour
 {
     public MyIntEvent UpdateMaxLife;
     public MyIntTupleEvent UpdateCurrentExperience;
     public MyIntTupleEvent UpdateCurrentLife;
     public MyIntEvent LevelUp;
+    public MyGobjEvent DoDamage;
+    public MyIntEvent GainExp;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,8 +56,18 @@ public class EventManager : MonoBehaviour
         UpdateCurrentExperience.Invoke(current, max);
     }
 
+    public void GainExpEvent(int exp)
+    {
+        GainExp.Invoke(exp);
+    }
+
     public void LevelUpEvent(int level)
     {
         LevelUp.Invoke(level);
+    }
+
+    public void DamageEvent(GameObject gameObject, int dmg, float percentHp)
+    {
+        DoDamage.Invoke(gameObject, dmg, percentHp);
     }
 }

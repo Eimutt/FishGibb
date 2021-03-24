@@ -15,7 +15,7 @@ public class Enemy : Unit
     
     protected bool InCombat;
     private GameObject player;
-    public float AggroRadius;
+    public float LeashRange;
     public float KnockbackStrength;
     private GameObject target;
     private Vector3 RandomDirection;
@@ -26,13 +26,14 @@ public class Enemy : Unit
     public float maxGrowth;
     private int incomingDamage;
     public float despawnRange;
+    private float baseSize;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         player = GameObject.FindWithTag("Player");
         currentHp = maxHp;
-        currentGrowth = transform.localScale.x;
+        currentGrowth = transform.Find("Sprite").localScale.x;
     }
 
     // Update is called once per frame
@@ -79,7 +80,7 @@ public class Enemy : Unit
         float z = Vector3.SignedAngle(Vector3.up, direction , Vector3.forward);
         Quaternion rotation = Quaternion.Euler(0, 0, z);
 
-        transform.rotation = rotation;
+        transform.GetChild(0).transform.rotation = rotation;
     }
 
     public int GetDamage()
@@ -94,12 +95,16 @@ public class Enemy : Unit
 
     public bool IsInRangeOfPlayer()
     {
-        return (Vector3.Distance(gameObject.transform.position, player.transform.position) < AggroRadius * transform.localScale.x);
+        return (Vector3.Distance(gameObject.transform.position, player.transform.position) < LeashRange * transform.localScale.x);
     }
 
     public void GetRandomDirection()
     {
         RandomDirection = Quaternion.Euler(0f, 0f, Random.Range(0, 360)) * Vector3.right;
+        float z = Vector3.SignedAngle(Vector3.up, RandomDirection, Vector3.forward);
+        Quaternion rotation = Quaternion.Euler(0, 0, z);
+
+        transform.Find("Sprite").transform.rotation = rotation;
         Patrolling = true;
     }
 
@@ -141,14 +146,13 @@ public class Enemy : Unit
         if(currentGrowth <= maxGrowth)
         {
             currentGrowth *= 1.1f;
-            transform.localScale = new Vector3(currentGrowth, currentGrowth, currentGrowth);
+            transform.Find("Sprite").transform.localScale = new Vector3(currentGrowth, currentGrowth, currentGrowth);
         }
     }
 
     public override void Die()
     {
-        worldHandler.GainExp(this.experience);
-        //eventManager.GrantExperienceEvent(this.experience);
+        eventManager.GainExpEvent(this.experience);
         Destroy(gameObject);
     }
 
@@ -157,6 +161,7 @@ public class Enemy : Unit
     {
         currentHp -= damage;
         incomingDamage -= damage;
+        eventManager.DamageEvent(this.gameObject, damage, GetHpPercentage());
         if (currentHp <= 0)
             Die();
     }
