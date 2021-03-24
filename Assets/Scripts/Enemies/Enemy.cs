@@ -143,6 +143,12 @@ public class Enemy : Unit
     {
         //Should monsters regenerate hp?
         //currentHp = currentHp < maxHp ? currentHp+1 : currentHp;
+
+        if(currentHp < maxHp)
+        {
+            currentHp += 1;
+            eventManager.DamageEvent(this.gameObject, -1, GetHpPercentage());
+        }
         if(currentGrowth <= maxGrowth)
         {
             currentGrowth *= 1.1f;
@@ -152,6 +158,9 @@ public class Enemy : Unit
 
     public override void Die()
     {
+        print("dying");
+
+        GetComponent<Drops>().DropStuff();
         eventManager.GainExpEvent(this.experience);
         Destroy(gameObject);
     }

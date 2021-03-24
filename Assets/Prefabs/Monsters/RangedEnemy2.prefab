@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -761542191219529260, guid: c55e1840a36e8aa43b6a71481fa9e191,
+        type: 3}
+      propertyPath: loottable.LootDrops.Array.data[1].dropRate
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -761542191219529260, guid: c55e1840a36e8aa43b6a71481fa9e191,
+        type: 3}
+      propertyPath: loottable.LootDrops.Array.data[0].dropRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1165367946262365621, guid: c55e1840a36e8aa43b6a71481fa9e191,
         type: 3}
       propertyPath: m_AnchorMax.x

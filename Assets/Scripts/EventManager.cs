@@ -29,6 +29,7 @@ public class EventManager : MonoBehaviour
     public MyIntEvent LevelUp;
     public MyGobjEvent DoDamage;
     public MyIntEvent GainExp;
+    public MyIntTupleEvent PickupItem;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,5 +70,10 @@ public class EventManager : MonoBehaviour
     public void DamageEvent(GameObject gameObject, int dmg, float percentHp)
     {
         DoDamage.Invoke(gameObject, dmg, percentHp);
+    }
+
+    public void PickUpItemEvent(int itemId, int quantity)
+    {
+        PickupItem.Invoke(itemId, quantity);
     }
 }

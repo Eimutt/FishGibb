@@ -32,10 +32,17 @@ public class CombatUIHandler : MonoBehaviour
 
     public void CreateDamageText(GameObject target, int damage)
     {
-        print(target.transform.position);
         GameObject text = Instantiate(defaultText);
         Text myText = text.GetComponent<Text>();
-        myText.text = damage.ToString();
         text.transform.position = target.transform.position;
+        if(damage > 0)
+        {
+            myText.text = "-" + damage.ToString();
+        } 
+        else
+        {
+            myText.text = "+" + (damage *= -1).ToString();
+            myText.color = Color.green;
+        }
     }
 }

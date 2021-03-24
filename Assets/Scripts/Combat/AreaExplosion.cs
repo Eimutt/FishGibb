@@ -52,7 +52,7 @@ public class AreaExplosion : MonoBehaviour
             {
                 GameObject explostionObj = Instantiate(this.gameObject, collision.transform.position, new Quaternion(0, 0, 0, 0), GameObject.Find("BulletManager").transform);
                 AreaExplosion explosion = explostionObj.GetComponent<AreaExplosion>();
-                explosion.Initialise(this.damage / 2, this.radius / 2, this.lifetime / 2);
+                explosion.Initialise(this.damage / 2, this.radius / 2, this.lifetime);
             }
         }
     }

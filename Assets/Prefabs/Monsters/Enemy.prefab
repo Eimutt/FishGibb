@@ -511,6 +511,7 @@ GameObject:
   - component: {fileID: 6188525439801622226}
   - component: {fileID: 6188525439801622225}
   - component: {fileID: 6188525439801622224}
+  - component: {fileID: -5479328177299176808}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -604,3 +605,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5479328177299176808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6188525439801622237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6458a267f76f5444c87aa0b56f002f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loottable:
+    LootDrops:
+    - item: {fileID: 1684235645083352505, guid: c9867d08cc7cdcd4c925ba1beff00565,
+        type: 3}
+      dropRate: 1
+    - item: {fileID: 4803446151308231123, guid: e644c7bf3c720f44d88eff7cef9724a9,
+        type: 3}
+      dropRate: 0.3
+    - item: {fileID: 2717892930166211835, guid: f41e006f604f9d64faca69d35c5b4cd7,
+        type: 3}
+      dropRate: 0.05
