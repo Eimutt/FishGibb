@@ -9,6 +9,8 @@ public class AreaExplosion : MonoBehaviour
     private float lifetime;
     private float age;
     private SpriteRenderer spriteRenderer;
+    public bool explodeOnKill;
+    public Color onDeathColor;
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +50,12 @@ public class AreaExplosion : MonoBehaviour
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage(damage);
             //Enemies cause new explosion if they die
-            if (!(enemy.GetCurrentHp() > 0))
+            if (!(enemy.GetCurrentHp() > 0) && explodeOnKill)
             {
-                GameObject explostionObj = Instantiate(this.gameObject, collision.transform.position, new Quaternion(0, 0, 0, 0), GameObject.Find("BulletManager").transform);
-                AreaExplosion explosion = explostionObj.GetComponent<AreaExplosion>();
+                GameObject explosionObj = Instantiate(this.gameObject, collision.transform.position, new Quaternion(0, 0, 0, 0), GameObject.Find("BulletManager").transform);
+                AreaExplosion explosion = explosionObj.GetComponent<AreaExplosion>();
                 explosion.Initialise(this.damage / 2, this.radius / 2, this.lifetime);
+                explosionObj.GetComponent<SpriteRenderer>().color = onDeathColor;
             }
         }
     }

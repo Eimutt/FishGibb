@@ -27,6 +27,7 @@ public class Enemy : Unit
     private int incomingDamage;
     public float despawnRange;
     private float baseSize;
+    private bool dead;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -158,11 +159,13 @@ public class Enemy : Unit
 
     public override void Die()
     {
-        print("dying");
-
-        GetComponent<Drops>().DropStuff();
-        eventManager.GainExpEvent(this.experience);
-        Destroy(gameObject);
+        if (!dead)
+        {
+            dead = true;
+            GetComponent<Drops>().DropStuff();
+            eventManager.GainExpEvent(this.experience);
+            Destroy(gameObject);
+        }
     }
 
 

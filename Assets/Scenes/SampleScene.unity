@@ -2931,12 +2931,12 @@ PrefabInstance:
     - target: {fileID: 5148472486560701742, guid: 9c58a4b3c18bb89459d908733c45f428,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -401
+      value: -406
       objectReference: {fileID: 0}
     - target: {fileID: 5148472486560701742, guid: 9c58a4b3c18bb89459d908733c45f428,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 251
+      value: 236
       objectReference: {fileID: 0}
     - target: {fileID: 5148472486560701742, guid: 9c58a4b3c18bb89459d908733c45f428,
         type: 3}
@@ -4440,11 +4440,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
         type: 3}
-      propertyPath: PickupItem.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
-        type: 3}
       propertyPath: UpdateCurrentExperience.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 178696437}
@@ -4465,29 +4460,9 @@ PrefabInstance:
       objectReference: {fileID: 919059033}
     - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
         type: 3}
-      propertyPath: PickupItem.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
-        type: 3}
-      propertyPath: PickupItem.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
-        type: 3}
       propertyPath: PickupItem.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 417288318}
-    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
-        type: 3}
-      propertyPath: PickupItem.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateItemWrapper
-      objectReference: {fileID: 0}
-    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
-        type: 3}
-      propertyPath: PickupItem.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4132065323548478194, guid: ed84a96952ab0d4409dde2fccb49ffe2,
         type: 3}
       propertyPath: fish

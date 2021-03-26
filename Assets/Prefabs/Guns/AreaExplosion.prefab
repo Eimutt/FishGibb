@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca31c3b0356f8c4f9f4f78b7b21386f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeOnKill: 1
+  onDeathColor: {r: 0.8962264, g: 0.66450524, b: 0.6552599, a: 0}
 --- !u!212 &4497177934009948894
 SpriteRenderer:
   m_ObjectHideFlags: 0

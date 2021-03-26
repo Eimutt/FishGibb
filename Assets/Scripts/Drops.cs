@@ -16,7 +16,7 @@ public class Drops : MonoBehaviour
             if(loot.dropRate >= rand)
             {
                 //Instantiate(loot.item);
-                Instantiate(loot.item, this.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity);
+                Instantiate(loot.item, this.transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0), Quaternion.identity, GameObject.Find("Loot").transform);
             }
         }
     }
