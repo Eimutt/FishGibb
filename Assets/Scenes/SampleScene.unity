@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773e3c468630d314f8d24a213557a740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1
   cost: 1
   unlocks: {fileID: 0}
 --- !u!1 &72899759
@@ -1247,18 +1248,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389639407}
   m_CullTransparentMesh: 0
---- !u!114 &417288318 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9068670172212092045, guid: 5ac03e7fa18fee84991a330dedd48df5,
-    type: 3}
-  m_PrefabInstance: {fileID: 762543168}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3f53b417c3f5b2448702340f1383f0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &449946815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,6 +1919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773e3c468630d314f8d24a213557a740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   cost: 3
   unlocks: {fileID: 0}
 --- !u!1001 &762543168
@@ -2057,6 +2047,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 762543168}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &762543170 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9068670172212092045, guid: 5ac03e7fa18fee84991a330dedd48df5,
+    type: 3}
+  m_PrefabInstance: {fileID: 762543168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f53b417c3f5b2448702340f1383f0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &793733682
 GameObject:
   m_ObjectHideFlags: 0
@@ -4433,7 +4435,42 @@ PrefabInstance:
         type: 3}
       propertyPath: PickupItem.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 417288318}
+      objectReference: {fileID: 762543170}
+    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
+        type: 3}
+      propertyPath: UpdateMaxLife.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 178696435}
+    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
+        type: 3}
+      propertyPath: UpdateMaxLife.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
+        type: 3}
+      propertyPath: UpdateCurrentExperience.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateExpBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
+        type: 3}
+      propertyPath: PickupItem.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateItemWrapper
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
+        type: 3}
+      propertyPath: UpdateCurrentLife.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
+        type: 3}
+      propertyPath: LevelUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132065322484845180, guid: ed84a96952ab0d4409dde2fccb49ffe2,
+        type: 3}
+      propertyPath: DoDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DamageEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4132065323548478194, guid: ed84a96952ab0d4409dde2fccb49ffe2,
         type: 3}
       propertyPath: fish

@@ -2,6 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class UnlockTuple
+{
+    public UnlockTuple(int cost, int skillPoints)
+    {
+        this.cost = cost;
+        this.skillPoints = skillPoints;
+    }
+    public int cost;
+    public int skillPoints;
+}
+
 public class Unlocks : MonoBehaviour
 {
     private StatUnlock[] StatsUnlocks;
@@ -47,14 +58,30 @@ public class Unlocks : MonoBehaviour
 
 
         statUnlock.IncreaseStat();
-
+        int newCost = statUnlock.GetCost();
 
         eventManager.UpdateFreeTalentsEvent(skillPoints);
+        eventManager.UpdateUnlockEvent(Id, newCost, skillPoints);
     }
 
     public void UnlockWeapon(int weaponId)
     {
         Instantiate(weaponPrefabs[weaponId], fish.transform);
         eventManager.UpdateFreeTalentsEvent(skillPoints);
+    }
+
+    public int GetSkillPoints()
+    {
+        return skillPoints;
+    }
+
+    public int GetCost(int skillId)
+    {
+        return StatsUnlocks[skillId].GetCost();
+    }
+
+    public UnlockTuple GetUnlockStatus(int skillId)
+    {
+        return new UnlockTuple(GetCost(skillId), skillPoints);
     }
 }

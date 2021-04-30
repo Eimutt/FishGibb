@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -721,7 +721,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1500521002}
-        m_MethodName: CreateDamageText
+        m_MethodName: DamageEnemy
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -732,6 +732,15 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   GainExp:
+    m_PersistentCalls:
+      m_Calls: []
+  PickupItem:
+    m_PersistentCalls:
+      m_Calls: []
+  UpdateFreeTalents:
+    m_PersistentCalls:
+      m_Calls: []
+  UpdateUnlock:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1245496733
@@ -810,7 +819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  limit: 0
+  duration: 0
   Xvariance: 0
 --- !u!114 &1427518391
 MonoBehaviour:
@@ -917,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultText: {fileID: 1096884054270498794, guid: 609d92c3d9ee60241a712843ce321d34,
     type: 3}
+  showDamageText: 0
 --- !u!1 &1754877207
 GameObject:
   m_ObjectHideFlags: 0

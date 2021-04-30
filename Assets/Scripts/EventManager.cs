@@ -21,6 +21,12 @@ public class MyGobjEvent: UnityEvent<GameObject, int, float>
 
 }
 
+[System.Serializable]
+public class MyUnlockEvent : UnityEvent<int, int, int>
+{
+
+}
+
 public class EventManager : MonoBehaviour
 {
     public MyIntEvent UpdateMaxLife;
@@ -31,6 +37,7 @@ public class EventManager : MonoBehaviour
     public MyIntEvent GainExp;
     public MyIntTupleEvent PickupItem;
     public MyIntEvent UpdateFreeTalents;
+    public MyUnlockEvent UpdateUnlock;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,5 +88,10 @@ public class EventManager : MonoBehaviour
     public void UpdateFreeTalentsEvent(int amount)
     {
         UpdateFreeTalents.Invoke(amount);
+    }
+
+    public void UpdateUnlockEvent(int unlockId, int newCost, int SkillPoints)
+    {
+        UpdateUnlock.Invoke(unlockId, newCost, SkillPoints);
     }
 }

@@ -44,13 +44,13 @@ public class StatUnlock
     public void IncreaseStat()
     {
         currentLvl++;
-        cost = CalculateNewCost(cost);
+        CalculateNewCost();
     }
 
     //Maybe make this more complicated
-    private int CalculateNewCost(int cost)
+    private void CalculateNewCost()
     {
-        return cost++;
+        cost += 1;
     }
 
 }
