@@ -34,7 +34,6 @@ public class Unlocks : MonoBehaviour
     {
         StatUnlock statUnlock = StatsUnlocks[Id];
         skillPoints -= statUnlock.GetCost();
-        statUnlock.IncreaseStat();
 
         switch (Id)
         {
@@ -46,10 +45,16 @@ public class Unlocks : MonoBehaviour
                 break;
         }
 
+
+        statUnlock.IncreaseStat();
+
+
+        eventManager.UpdateFreeTalentsEvent(skillPoints);
     }
 
     public void UnlockWeapon(int weaponId)
     {
         Instantiate(weaponPrefabs[weaponId], fish.transform);
+        eventManager.UpdateFreeTalentsEvent(skillPoints);
     }
 }

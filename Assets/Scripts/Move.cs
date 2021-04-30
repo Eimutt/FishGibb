@@ -30,6 +30,12 @@ public class Move : MonoBehaviour
                 this.transform.position += direction * Fish.GetSpeed() * Time.deltaTime;
             }
         }
-        
+        else
+        {
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
+            Vector3 direction = new Vector3(h, v, 0);
+            this.transform.position +=  Vector3.Normalize(direction) * Fish.GetSpeed() * Time.deltaTime;
+        }
     }
 }

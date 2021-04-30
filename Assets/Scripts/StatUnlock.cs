@@ -45,7 +45,6 @@ public class StatUnlock
     {
         currentLvl++;
         cost = CalculateNewCost(cost);
-        Debug.Log(this.name + " is now lvl " + this.currentLvl + "/" + this.maxLvl);
     }
 
     //Maybe make this more complicated
