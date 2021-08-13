@@ -54,6 +54,8 @@ MonoBehaviour:
   explosionAnimation: {fileID: -8092295105046505211, guid: 133ca942d467c1847821dcfcb3b07b77,
     type: 3}
   inactive: 0
+  fadeoutDuration: 0.5
+  fadeoutTimer: 0
 --- !u!212 &8276385679317717473
 SpriteRenderer:
   m_ObjectHideFlags: 0

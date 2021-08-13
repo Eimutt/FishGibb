@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Fish : Unit
 {
@@ -14,11 +15,16 @@ public class Fish : Unit
     private bool InCombat;
     public Color DamagedColor;
     [SerializeField] private InvulnerabilityColor InvulnerabilityColor;
+
+    private Unlocks Unlocks;
+
+
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         eventManager.UpdateLifeEvent(currentHp, maxHp);
+        Unlocks = this.GetComponent<Unlocks>();
     }
 
     // Update is called once per frame
@@ -102,6 +108,11 @@ public class Fish : Unit
             InvulnerabilityColor.SetTintColor(DamagedColor, InvulnerabilityDuration);
             currentHp -= damage;
             eventManager.UpdateLifeEvent(currentHp, maxHp);
+
+            if(currentHp <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 }

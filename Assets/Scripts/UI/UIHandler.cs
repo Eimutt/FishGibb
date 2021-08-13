@@ -12,7 +12,7 @@ public class UIHandler : MonoBehaviour
     public GameObject skillPointsButton;
     public GameObject skillMenu;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         levelText = gameObject.transform.Find("LevelText").gameObject;
         levelBar = gameObject.transform.Find("ExpBar").gameObject;

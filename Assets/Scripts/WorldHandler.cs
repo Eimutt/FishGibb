@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class WorldHandler : MonoBehaviour
 {
-    public int currentLevel;
-    public int currentExp;
-    public int neededExp;
     private EventManager eventManager;
     private Unlocks unlocks;
     private EnemySpawner enemySpawner;
+
+    private int level;
+    private int worldStage;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentLevel = 1;
-        currentExp = 0;
-        neededExp = 10;
+        worldStage = 1;
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         unlocks = GetComponent<Unlocks>();
@@ -28,34 +27,10 @@ public class WorldHandler : MonoBehaviour
         
     }
 
-    public void GainExp(int exp)
+    public void LevelUp(int newLevel)
     {
-        currentExp += exp;
-        if (currentExp >= neededExp)
-        {
-            LevelUp();
-        }
-
-        //update UI
-        eventManager.GrantExperienceEvent(currentExp, neededExp);
-    }
-
-    private void LevelUp()
-    {
-        currentExp = currentExp - neededExp;
-        currentLevel++;
-        CalculateNextExpReq();
-        //give out talentpoints / other level up stuff
-        eventManager.LevelUpEvent(currentLevel);
-        unlocks.EarnSkillPoint();
-
-        if (currentLevel % 3 == 0)
+        if (newLevel % 3 == 0)
             AdvanceStage();
-    }
-
-    private void CalculateNextExpReq()
-    {
-        neededExp += 2;
     }
 
     private void AdvanceStage()

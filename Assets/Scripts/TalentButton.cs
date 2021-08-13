@@ -16,7 +16,7 @@ public class TalentButton : MonoBehaviour
     {
         eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
         eventManager.UpdateUnlock.AddListener((int id, int newCost, int skillPoints) => UpdateStatus(id, newCost, skillPoints));
-        unlocks = GameObject.Find("WorldHandler").GetComponent<Unlocks>();
+        unlocks = GameObject.Find("Fish").GetComponent<Unlocks>();
         costText = transform.Find("Cost").GetComponent<Text>();
         init = true;
         GetStatus();
@@ -50,7 +50,6 @@ public class TalentButton : MonoBehaviour
 
     private void UpdateStatus(int id, int newCost, int skillPoints)
     {
-        print("id = " + id + ":" + newCost + " , " + skillPoints);
         if (id == this.id)
         {
             this.cost = newCost;

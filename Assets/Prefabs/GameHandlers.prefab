@@ -220,6 +220,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  UpdateFreeTalents:
+    m_PersistentCalls:
+      m_Calls: []
+  UpdateUnlock:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4132065323340205358
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +266,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4132065323548478196}
   - component: {fileID: 4132065323548478195}
-  - component: {fileID: 4132065323548478194}
   m_Layer: 0
   m_Name: WorldHandler
   m_TagString: Untagged
@@ -297,23 +302,8 @@ MonoBehaviour:
   currentLevel: 0
   currentExp: 0
   neededExp: 0
---- !u!114 &4132065323548478194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4132065323548478197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fe461db9b0fcaa4d9f93bfe17d0e3e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillPoints: 0
-  fish: {fileID: 0}
-  weaponPrefabs:
-  - {fileID: 4744296408633405329, guid: 15aa357d2ab8d1041835c0dfda0f8ac6, type: 3}
-  - {fileID: 6515839085857434287, guid: 3b6dd97a2f7754c42b21ea9759dc107d, type: 3}
+  expIncreaseModifier: 1.2
+  flatExpIncrease: 2
 --- !u!1 &4132065323741077757
 GameObject:
   m_ObjectHideFlags: 0

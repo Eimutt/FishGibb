@@ -9,7 +9,8 @@ public class RangedEnemy : Enemy
     {
         Pattern,
         Target,
-        Circle
+        Circle,
+        Fixed
     }
     public RangedAttackType rangedType;
     public float range;
@@ -93,6 +94,18 @@ public class RangedEnemy : Enemy
                 }
                 break;
             }
+            case RangedAttackType.Fixed:
+            {
+                shotAngle = transform.Find("Sprite").rotation.eulerAngles.z;
+                Vector3 dir = Quaternion.AngleAxis(shotAngle, Vector3.forward) * Vector3.up;
+                GameObject enemyBulletObj = Instantiate(shot, transform.position, new Quaternion(0, 0, 0, 0), GameObject.Find("BulletManager").transform);
+                EnemyBullet enBullet = enemyBulletObj.GetComponent<EnemyBullet>();
+                enBullet.Initialise(dir);
+
+                break;
+            }
+
+
             default: break;
         }
     }

@@ -10,14 +10,19 @@ public class ProgressBar : MonoBehaviour
     public Color EmptyColor;
     public bool GrowFromLeft;
     private int MaxValue;
-    private GameObject bar;
-    private GameObject text;
+    public GameObject bar;
+    public GameObject text;
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         bar = transform.Find("Bar").gameObject;
         text = transform.Find("Text").gameObject;
-        SetProgress(StartPercentage, 1);
+    }
+
+    void Start()
+    {
+        //SetProgress(StartPercentage, 1);
     }
 
     // Update is called once per frame

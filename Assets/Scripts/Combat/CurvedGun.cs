@@ -24,7 +24,7 @@ public class CurvedGun : MonoBehaviour
         reloadTime += Time.deltaTime;
         if (reloadTime > (1 / fireRate))
         {
-            if (target && target.GetComponent<Enemy>().WillSurvive())
+            if (target)
             {
                 if (IsTargetInRange())
                     Shoot();
@@ -50,19 +50,22 @@ public class CurvedGun : MonoBehaviour
             while (!found)
             {
                 GameObject enemy = enemies[Random.Range(0, enemies.Length)];
-                if (enemy.GetComponent<Enemy>().WillSurvive())
+                //if (enemy.GetComponent<Enemy>().WillSurvive())
                 {
                     target = enemy;
                     found = true;
                 }
-            }        } else
+            }        
+        }
+        else
         {
             foreach (GameObject enemy in enemies)
             {
                 float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
-                if (enemyDistance < minDistance && enemy.GetComponent<Enemy>().WillSurvive())
-                {
-                    target = enemy;
+                //if (enemyDistance < minDistance && enemy.GetComponent<Enemy>().WillSurvive())
+                if (enemyDistance < minDistance)
+                    {
+                        target = enemy;
                     minDistance = enemyDistance;
                 }
             }

@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Enemy : Unit
 {
-    public enum EnemyType { Hostile, Passive}
+    public enum EnemyType { Hostile, Passive, Boss, BossAdd}
     public EnemyType type;
     //public int maxHp;
     //public float currentHp;
@@ -40,37 +40,48 @@ public class Enemy : Unit
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (InCombat)
+        if(type == EnemyType.BossAdd)
         {
-            if (!IsInRangeOfPlayer())
+
+        }
+        else
+        {
+            if (InCombat)
             {
-                InCombat = false;
-                target = null;
-            } else
+                if (!IsInRangeOfPlayer())
+                {
+                    InCombat = false;
+                    target = null;
+                }
+                else
+                {
+                    MoveTowardsTarget();
+                }
+            }
+            else if (target)
             {
                 MoveTowardsTarget();
             }
-        } else if (target)
-        {
-            MoveTowardsTarget();
-        } else
-        {
-            if (Patrolling)
+            else
             {
-                transform.position += RandomDirection * speed * Time.deltaTime;
-                timer += Time.deltaTime;
-                if (timer > 3)
+                if (Patrolling)
                 {
-                    Patrolling = false;
-                    timer = 0;
+                    transform.position += RandomDirection * speed * Time.deltaTime;
+                    timer += Time.deltaTime;
+                    if (timer > 3)
+                    {
+                        Patrolling = false;
+                        timer = 0;
+                    }
                 }
-            } else
-            {
-                GetRandomDirection();
+                else
+                {
+                    GetRandomDirection();
+                }
             }
+            if (Vector3.Distance(gameObject.transform.position, player.transform.position) > despawnRange)
+                Destroy(this.gameObject);
         }
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > despawnRange)
-            Destroy(this.gameObject);
     }
 
     private void MoveTowardsTarget()
@@ -161,9 +172,13 @@ public class Enemy : Unit
     {
         if (!dead)
         {
+            if(type != EnemyType.BossAdd)
+            {
+                GetComponent<Drops>().DropStuff();
+                eventManager.GainExpEvent(this.experience);
+
+            }
             dead = true;
-            GetComponent<Drops>().DropStuff();
-            eventManager.GainExpEvent(this.experience);
             Destroy(gameObject);
         }
     }
@@ -179,11 +194,12 @@ public class Enemy : Unit
     }
     public void IncreaseIncomingDamage(int damage)
     {
-        incomingDamage += damage;
+        //incomingDamage += damage;
     }
 
     public bool WillSurvive()
     {
-        return (incomingDamage < currentHp);
+        //return (incomingDamage < currentHp);
+        return true;
     }
 }

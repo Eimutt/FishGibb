@@ -20,7 +20,7 @@ public class Move : MonoBehaviour
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                //Debug.Log("clicked on UI");
+                Debug.Log("clicked on UI");
             }
             else
             {
