@@ -28,6 +28,7 @@ public class Move : MonoBehaviour
                 mousePosition.z = 0;
                 Vector3 direction = Vector3.Normalize(mousePosition - this.transform.position);
                 this.transform.position += direction * Fish.GetSpeed() * Time.deltaTime;
+                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -0.25f);
             }
         }
         else
